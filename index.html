@@ -5,9 +5,10 @@
  </head>
  <body>
  	<div id="speakerbox">
-     <div id="carousel">
-         
-   </div><!--END carousel-->
+        <!-- kontrolni dugmici koje sam definisao dole u jquery metodi-->
+        <a href="#" id="prev_btn">&laquo;</a>
+        <a href="#" id="next_btn">&raquo;</a>
+     <div id="carousel"></div><!--END carousel-->
   </div><!--END speakerbox-->
      
      <script id="speakerstpl" type="text/template">
@@ -30,6 +31,15 @@
            var template = $('#speakerstpl').html();
              var html = Mustache.to_html(template, data);
              $('#carousel').html(html);
+             
+             $('#carousel').cycle({
+                fx: 'fade',
+                 pause: 1,
+                 next: '#next_btn',
+                 prev: '#prev_btn',
+                 speed: 500,
+                 timeout: 10000
+             });
          });
         });
      </script>
